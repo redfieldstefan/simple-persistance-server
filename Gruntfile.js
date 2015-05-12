@@ -8,7 +8,6 @@ module.exports = function (grunt) {
 
 	var srcFiles = ['Gruntfile.js', './test/**/*test.js', './routes/*.js', './models/*.js'];
 	
-
 	grunt.initConfig({
 
 		jshint: {

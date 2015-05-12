@@ -12,10 +12,9 @@ module.exports = function(router) {
 		
 		fs.readdir('./data', function(err, files) {
 			if (err) {
-				console.log(err)
-				return
+				console.log(err);
+				return;
 			}
-			
 			res.json(files);
 		});
 	});
@@ -26,12 +25,12 @@ module.exports = function(router) {
 			rant: req.body.rant
 		};
 		var stringRant = JSON.stringify(newRant);
+		var fileId;
 		fs.readdir('./data', function(err, files){
 			if(err) {
 				console.log(err);
 			} 
 			else
-				var fileId;
 				fileId = files.length;
 				var filepath = './data/file' + fileId + '.json';
 				fs.writeFile(filepath, stringRant, function(err){
@@ -45,7 +44,6 @@ module.exports = function(router) {
 	});
 
 	router.put('/rants/:id', function(req, res){
-		var patch = req.params.patch
 		var update = JSON.stringify(req.body);
 		var filepath = './data/' + req.params.id;
 		fs.writeFile(filepath, update, function(err){
@@ -88,6 +86,6 @@ module.exports = function(router) {
 				return res.status(500).json({msg: 'Ooooh, looks like something is wrong with the process'});
 			}
 			res.json({msg:'delete request complete'});
-		})
-	})
+		});
+	});
 };

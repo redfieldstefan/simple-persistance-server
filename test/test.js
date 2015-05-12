@@ -38,7 +38,7 @@ describe('Needs Rants to alter', function() {
 		var rantTest = {
 			title: 'test',
 			rant: 'test'
-		}
+		};
 		done();
 	}); 
 
